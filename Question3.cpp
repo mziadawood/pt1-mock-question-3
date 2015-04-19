@@ -22,6 +22,39 @@ private:
 	int num;				// numerator;
 	int denom;				// denominator;
 public:
-	Fraction(int n, int d) : num(n), denum(d) { };
+	Fraction(int n, int d) : num(n), denom(d) { };
 	void print() { cout << num << "/" << denom; };
+
+	friend bool operator>(Fraction a, Fraction b)
+	{
+		if ((a.num*b.denom) > (b.num*a.denom))
+			return true;
+
+		else return false;
+	
+	}
+
+	Fraction add(int a, Fraction b)
+	{
+		Fraction c(0,0);
+
+		c.num = (a*b.denom) + b.num;
+		c.denom = b.denom;
+
+		return c;
+
+	}
+
+	Fraction add(Fraction b,int a)
+	{
+		Fraction c(0, 0);
+
+		c.num = (a*b.denom) + b.num;
+		c.denom = b.denom;
+
+		return c;
+
+	}
+
+
 };
